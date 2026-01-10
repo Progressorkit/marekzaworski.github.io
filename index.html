@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OBSERWATOR | Marek Zaworski</title>
+<style>
+body { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1973&auto=format&fit=crop'); background-size: cover; background-position: center; background-attachment: fixed; color: #bbb; font-family: 'Courier New', Courier, monospace; margin: 0; }
+.container { max-width: 800px; margin: auto; padding: 60px 20px; }
+h1 { color: #8b0000; font-size: 2.2rem; letter-spacing: 12px; text-transform: uppercase; margin: 0; }
+.lead { font-size: 0.8rem; color: #555; letter-spacing: 2px; margin-bottom: 50px; }
+section { margin-bottom: 60px; padding-top: 20px; border-top: 1px solid #222; }
+.bio-box { background: rgba(10,10,10,0.9); padding: 30px; border-left: 4px solid #8b0000; margin-bottom: 40px; }
+.bio-box h2 { color: #fff; font-size: 1rem; margin-top: 0; letter-spacing: 3px; }
+.założycielska { background: rgba(139,0,0,0.1); border: 1px solid #444; padding: 30px; position: relative; }
+.price { color: #8b0000; font-weight: bold; font-size: 1.4rem; margin: 15px 0; }
+.btn { display: inline-block; border: 1px solid #8b0000; padding: 12px 25px; color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: bold; background: transparent; cursor: pointer; }
+.btn:hover { background: #8b0000; }
+.input-mail { background: #111; border: 1px solid #333; padding: 10px; color: #fff; width: 250px; font-family: inherit; }
+.legal-link { font-size: 0.7rem; color: #444; text-decoration: underline; cursor: pointer; display: block; margin-top: 20px; }
+.hidden-content { display: none; padding-top: 20px; font-size: 0.8rem; color: #666; }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>OBSERWATOR</h1>
+        <p class="lead">ARCHIWUM TREŚCI NIEZALEŻNYCH</p>
+    </header>
+
+    <div class="bio-box">
+        <h2>MAREK ZAWORSKI: GŁOS Z CIENIA</h2>
+        <p>Pisarz, obserwator, człowiek, który przestał uciekać. Moje powieści kryminalne to nie fikcja – to raporty z miejsc, o których System wolałby zapomnieć. Jako twórca "Granic", buduję tę platformę dla tych, którzy tak jak ja, nie mieszczą się w korporacyjnym druku. Tu liczy się prawda, nie algorytm.</p>
+    </div>
+
+    <section>
+        <span style="color:#8b0000; font-size:0.7rem; font-weight:bold;">PUBLIKACJA FUNDAMENTALNA</span>
+        <div class="założycielska">
+            <h3>Trylogia: GRANICE</h3>
+            <p>Moja autorska droga przez mrok. Pełny pakiet (Tomy I-III + Notatki Obserwatora). Kupując tutaj, wspierasz niezależność projektu.</p>
+            <div class="price">59.90 PLN</div>
+            <a href="https://paypal.me/marekzaworski/59.90PLN" class="btn">KUP PAKIET</a>
+        </div>
+    </section>
+
+    <section>
+        <h2>DOŁĄCZ DO ARCHIWUM</h2>
+        <p>Zapisz się, by otrzymywać powiadomienia o nowych publikacjach, zanim zostaną zdjęte.</p>
+        <form action="#">
+            <input type="email" placeholder="Twój e-mail" class="input-mail">
+            <button type="button" class="btn" style="padding: 10px 15px;">ZAPISZ</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>DLA TWÓRCÓW</h2>
+        <p>Masz treść, która parzy? Chcesz publikować na własnych zasadach pod szyldem OBSERWATORA? Prowizja 10% od Twojej sprzedaży zasila rozwój platformy.</p>
+        <a href="mailto:marek.zaworski.autor@gmail.com" class="btn">WYŚLIJ MANIFEST</a>
+    </section>
+
+    <footer>
+        <span class="legal-link" onclick="document.getElementById('legal').style.display='block'">NOTY PRAWNE I ZASADY OPERACYJNE</span>
+        <div id="legal" class="hidden-content">
+            OPERATOR (MAREK ZAWORSKI) NIE ODPOWIADA ZA TREŚĆ TWÓRCÓW. TWÓRCA ZACHOWUJE 100% PRAW. KORZYSTANIE Z SERWISU OZNACZA AKCEPTACJĘ REGULAMINU CIENIA.
+        </div>
+        <p style="font-size: 0.6rem; color: #333; margin-top: 30px;">© 2026 OBSERWATOR PLATFORM | Marek Zaworski</p>
+    </footer>
+</div>
+</body>
+</html>
