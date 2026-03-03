@@ -119,6 +119,45 @@ Puszka Pandory została otwarta.
 
         window.onload = typeWriter;
     </script>
+<script>
+    const content = `[TUTAJ WKLEJ TWÓJ CAŁY TEKST RAPORTU]`; // Zostaw swój tekst, który już tam masz
+
+    let charIndex = 0;
+    const speed = 25; 
+    let autoScroll = true; // Zmienna sterująca auto-scrollem
+
+    // Funkcja wykrywająca, czy użytkownik dotknął ekranu lub użył kółka myszy
+    const stopScroll = () => {
+        autoScroll = false;
+    };
+
+    // Nasłuchiwanie na dotyk (telefon) i scroll (myszka)
+    window.addEventListener('touchstart', stopScroll);
+    window.addEventListener('wheel', stopScroll);
+    window.addEventListener('mousedown', stopScroll);
+
+    function startStreaming() {
+        if (charIndex < content.length) {
+            document.getElementById("text-stream").innerHTML += content.charAt(charIndex);
+            charIndex++;
+
+            // Przewijaj tylko jeśli użytkownik nie przejął kontroli
+            if (autoScroll) {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth' // Dodajemy płynność
+                });
+            }
+
+            setTimeout(startStreaming, speed);
+        } else {
+            document.getElementById("cursor").style.display = "none";
+            document.getElementById("backLink").style.display = "block";
+        }
+    }
+
+    window.onload = startStreaming;
+</script>
 
 </body>
 </html>
