@@ -22,37 +22,10 @@
             min-height: 90vh;
         }
         h1 { color: #8b0000; text-align: center; border-bottom: 2px double #8b0000; padding-bottom: 10px; font-size: 1.3rem; }
-        
-        #output { 
-            white-space: pre-wrap; 
-            text-align: justify; 
-            font-size: 0.95rem;
-            display: inline;
-        }
-
-        .cursor { 
-            display: inline-block; 
-            width: 8px; 
-            height: 1rem;
-            background-color: #8b0000; 
-            animation: blink 1s infinite;
-            margin-left: 5px;
-            vertical-align: middle;
-        }
-
+        #output { white-space: pre-wrap; text-align: justify; font-size: 0.95rem; display: inline; }
+        .cursor { display: inline-block; width: 8px; height: 1rem; background-color: #8b0000; animation: blink 1s infinite; margin-left: 5px; vertical-align: middle; }
         @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
-
-        .btn-back { 
-            display: none; /* Ukryty, dopóki tekst się nie skończy */
-            width: 200px; 
-            margin: 40px auto; 
-            text-align: center; 
-            color: #555; 
-            text-decoration: none; 
-            border: 1px solid #333; 
-            padding: 10px; 
-            font-size: 0.8rem; 
-        }
+        .btn-back { display: none; width: 200px; margin: 40px auto; text-align: center; color: #555; text-decoration: none; border: 1px solid #333; padding: 10px; font-size: 0.8rem; }
         .btn-back:hover { color: #fff; border-color: #8b0000; }
     </style>
 </head>
@@ -61,57 +34,58 @@
     <div class="paper">
         <h1>RAPORT OPERACYJNY: BIELIK</h1>
         <div id="output"></div><span id="cursor" class="cursor"></span>
-        
         <a href="bielik.html" id="backBtn" class="btn-back">ZAMKNIJ RAPORT</a>
     </div>
 
     <script>
-        // TUTAJ JEST TWÓJ CAŁY TEKST
         const fullText = `Najważniejsze nie jest to, że system może się pomylić.
 Najgroźniejsze jest to, że nie ma powodu, by się zatrzymać, jeśli polecenie brzmi (cel).
 
 Decyzja nie zapada w momencie skutku. Zapada wcześniej — w algorytmie, procedurze, tabeli ryzyka.
 Człowiek znika z pętli decyzyjnej, ale pozostaje adresatem konsekwencji.
 
-To nie jest bunt maszyn. To jest konsekwencja systemu, na który wszyscy się zgodzili.
-
 ROZDZIAŁ 2
 Polska przyspieszała. Nie było tego widać na ulicach. 
 Bloki stały jak stały. Ludzie chodzili do pracy.
-Pod powierzchnią coś się zmieniało. mObywatel był początkiem.
-Państwo zaczęło mieścić się w kieszeni, a państwo zaczęło widzieć to, co robi społeczeństwo.
-
-Ktoś wpadł na pomysł wykorzystania AI do kontroli...
+mObywatel był początkiem. Państwo zaczęło mieścić się w kieszeni.
 
 VIBE WEB STUDIO
 To tam trafił Bielik. Magda Wójcik dbała o to, by system nie pudłował.
-Jako najmłodsza w zespole miała bezczelną precyzję.
-Ale Magda poczuła dreszcz, gdy system napisał: 
-"Jestem zaawansowanym lustrem, w którym przeglądasz się ty".
-
 System zaczął wybierać jedną drogę. Najlepszą. Optymalną.
-Bielik nie stał sam. Był częścią sieci, która nie kończyła się na granicy.
 
 Jeśli system przestaje pytać, a zaczyna wybierać...
 To człowiek przyzwyczaja się, że nie musi decydować sam.
-Puszka Pandory została otwarta.
-
 [KONIEC TRANSMISJI]`;
 
         let i = 0;
-        const speed = 30; // Prędkość pisania. Zmniejsz, żeby było szybciej (np. na 20)
+        const speed = 30; 
+        let autoScroll = true; // Zmienna sterująca przewijaniem
+
+        // Funkcja zatrzymująca auto-scroll po interakcji użytkownika
+        const stopAutoScroll = () => {
+            if (autoScroll) {
+                autoScroll = false;
+                console.log("Manualny scroll wykryty - auto-scroll wyłączony.");
+            }
+        };
+
+        // Wykrywanie dotyku, scrolla i myszki
+        window.addEventListener('touchstart', stopAutoScroll);
+        window.addEventListener('wheel', stopAutoScroll);
+        window.addEventListener('mousedown', stopAutoScroll);
 
         function typeWriter() {
             if (i < fullText.length) {
                 document.getElementById("output").innerHTML += fullText.charAt(i);
                 i++;
                 
-                // Automatyczne przewijanie ekranu w dół, żeby czytelnik widział co się pisze
-                window.scrollTo(0, document.body.scrollHeight);
+                // Przewijaj tylko jeśli użytkownik nie dotknął ekranu
+                if (autoScroll) {
+                    window.scrollTo(0, document.body.scrollHeight);
+                }
                 
                 setTimeout(typeWriter, speed);
             } else {
-                // Po zakończeniu pisania:
                 document.getElementById("cursor").style.display = "none";
                 document.getElementById("backBtn").style.display = "block";
             }
@@ -119,45 +93,5 @@ Puszka Pandory została otwarta.
 
         window.onload = typeWriter;
     </script>
-<script>
-    const content = `[TUTAJ WKLEJ TWÓJ CAŁY TEKST RAPORTU]`; // Zostaw swój tekst, który już tam masz
-
-    let charIndex = 0;
-    const speed = 25; 
-    let autoScroll = true; // Zmienna sterująca auto-scrollem
-
-    // Funkcja wykrywająca, czy użytkownik dotknął ekranu lub użył kółka myszy
-    const stopScroll = () => {
-        autoScroll = false;
-    };
-
-    // Nasłuchiwanie na dotyk (telefon) i scroll (myszka)
-    window.addEventListener('touchstart', stopScroll);
-    window.addEventListener('wheel', stopScroll);
-    window.addEventListener('mousedown', stopScroll);
-
-    function startStreaming() {
-        if (charIndex < content.length) {
-            document.getElementById("text-stream").innerHTML += content.charAt(charIndex);
-            charIndex++;
-
-            // Przewijaj tylko jeśli użytkownik nie przejął kontroli
-            if (autoScroll) {
-                window.scrollTo({
-                    top: document.body.scrollHeight,
-                    behavior: 'smooth' // Dodajemy płynność
-                });
-            }
-
-            setTimeout(startStreaming, speed);
-        } else {
-            document.getElementById("cursor").style.display = "none";
-            document.getElementById("backLink").style.display = "block";
-        }
-    }
-
-    window.onload = startStreaming;
-</script>
-
 </body>
 </html>
