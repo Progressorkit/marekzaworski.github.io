@@ -12,33 +12,80 @@
             display: flex; 
             flex-direction: column;
             align-items: center; 
-            justify-content: center; 
-            height: 100vh; 
+            padding-top: 50px;
             margin: 0; 
+            text-transform: uppercase;
         }
         .frame { 
             border: 1px double #c0c0c0; 
-            padding: 50px; 
-            text-align: center;
+            padding: 30px; 
+            text-align: left;
             background: rgba(15, 15, 15, 0.9);
+            width: 80%;
+            max-width: 600px;
+            min-height: 200px;
+        }
+        #typewriter {
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            background-color: #c0c0c0;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .fragmenty-bielika {
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            width: 80%;
+            max-width: 600px;
         }
         .back-link { 
-            margin-top: 20px; 
+            margin: 40px 0;
             color: #555; 
             text-decoration: none; 
             border: 1px solid #333; 
-            padding: 5px 15px; 
+            padding: 10px 20px; 
+            font-size: 0.8rem;
         }
         .back-link:hover { color: #fff; border-color: #fff; }
     </style>
 </head>
 <body>
+
     <div class="frame">
-        <h1>🦅 PROJEKT BIELIK</h1>
-        <hr style="border: 0; border-top: 1px double #c0c0c0;">
-        <p>INICJATYWA NAPOWIETRZNA - STATUS: AKTYWNY</p>
-        <p style="font-size: 0.8rem; color: #444;">DANE ARCHIWALNE W TRAKCIE DESZYFRACJI...</p>
-        <a href="index.html" class="back-link">POWRÓT DO CENTRUM</a>
+        <div id="typewriter"></div><span class="cursor">&nbsp;</span>
     </div>
+
+    <div class="fragmenty-bielika">
+        <p style="color: #444; font-size: 0.7rem;">[SEKCJA: ARCHIWALNE FRAGMENTY TEKSTU]</p>
+        </div>
+
+    <a href="index.html" class="back-link">POWRÓT DO PANELU</a>
+
+    <script>
+        const text = "INICJATYWA BIELIK...\nPOŁĄCZENIE ZABEZPIECZONE.\nTRWA DESZYFRACJA DANYCH...\nDOSTĘP PRZYZNANY.\n\nWITAJ OBSERWATORZE.";
+        let i = 0;
+        const speed = 50; // Prędkość pisania w milisekundach
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // Uruchomienie efektu po załadowaniu strony
+        window.onload = typeWriter;
+    </script>
+
 </body>
 </html>
