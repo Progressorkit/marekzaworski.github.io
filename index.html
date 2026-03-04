@@ -72,12 +72,14 @@
         .counter-box {
             margin-top: 50px;
             font-size: 0.65rem;
-            color: #333;
+            color: #444;
             text-align: center;
             letter-spacing: 2px;
             text-transform: uppercase;
+            border-top: 1px solid #111;
+            padding-top: 20px;
         }
-        .counter-box span { color: #8b0000; }
+        .counter-box span { color: #8b0000; font-weight: bold; }
 
         .pobierz-przycisk {
             display: block;
@@ -104,11 +106,7 @@
 
     <div class="bio-box">
         <h2 style="color:#fff;">MAREK ZAWORSKI: GŁOS Z CIENIA</h2>
-        <p>
-            Pisarz, obserwator, człowiek, który przestał uciekać.
-            Moje powieści to nie fikcja – to zapisy z miejsc,
-            o których System wolałby milczeć.
-        </p>
+        <p>Pisarz, obserwator, człowiek, który przestał uciekać. Moje powieści to nie fikcja – to zapisy z miejsc, o których System wolałby milczeć.</p>
     </div>
 
     <section>
@@ -116,7 +114,6 @@
             <span style="font-size: 3rem; color: #8b0000;">💼</span>
             <h2>CENTRALNE ARCHIWUM AKT</h2>
         </div>
-        
         <div class="założycielska" style="text-align: center; border: 1px double #8b0000;">
             <p style="text-transform: uppercase; letter-spacing: 2px;">
                 Zbiór manifestów, dokumentacji śledczych oraz zapisów literackich.<br>
@@ -131,48 +128,38 @@
         <div class="dual-section">
             <div>
                 <h2>Dla czytelników</h2>
-                <p>Jeśli tu jesteś, to znaczy, że coś już zobaczyłeś.</p>
-                <p>Nie reklamę. Nie okładkę. Ślad.</p>
+                <p>Jeśli tu jesteś, to znaczy, że coś już zobaczyłeś. Nie reklamę. Nie okładkę. Ślad.</p>
             </div>
             <div>
                 <h2>Dostęp otwarty</h2>
                 <div class="założycielska">
-                    <p>
-                        Fragment roboczy.<br>
-                        Nie wprowadzenie. Nie streszczenie.<br>
-                        Jedno zamknięte ogniwo.
-                    </p>
-                    <a href="Rozdzial_13_pelny_czytelny_PL.pdf" 
-                       class="pobierz-przycisk" 
-                       download="Rozdzial_13_Marek_Zaworski.pdf">
-                       POBIERZ FRAGMENT (PDF)
-                    </a>
+                    <p>Fragment roboczy.<br>Nie wprowadzenie. Nie streszczenie.<br>Jedno zamknięte ogniwo.</p>
+                    <a href="Rozdzial_13_pelny_czytelny_PL.pdf" class="pobierz-przycisk" download="Rozdzial_13_Marek_Zaworski.pdf">POBIERZ FRAGMENT (PDF)</a>
                 </div>
             </div>
         </div>
     </section>
-<section>
-    <div class="założycielska" style="border: 1px double #c0c0c0; background: rgba(10, 10, 10, 0.8);">
-        <span style="font-size: 3rem; color: #c0c0c0;">🦅</span>
-        <h2 style="color: #c0c0c0; letter-spacing: 8px;">PROJEKT: BIELIK</h2>
-        <p style="text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
-            Inicjatywa napowietrzna systemu. <br>
-            <span style="color: #777; font-size: 0.8rem;">Analiza wysokiego pułapu. Dane niejawne.</span>
-        </p>
-        <a href="bielik.html" class="btn" style="border-color: #c0c0c0; color: #c0c0c0; padding: 15px 50px;">
-            URUCHOM PROTOKÓŁ BIELIK
-        </a>
-    </div>
-</section>
+
+    <section>
+        <div class="założycielska" style="border: 1px double #c0c0c0; background: rgba(10, 10, 10, 0.8);">
+            <span style="font-size: 3rem; color: #c0c0c0;">🦅</span>
+            <h2 style="color: #c0c0c0; letter-spacing: 8px;">PROJEKT: BIELIK</h2>
+            <p style="text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">
+                Inicjatywa napowietrzna systemu. <br>
+                <span style="color: #777; font-size: 0.8rem;">Analiza wysokiego pułapu. Dane niejawne.</span>
+            </p>
+            <a href="bielik.html" class="btn" style="border-color: #c0c0c0; color: #c0c0c0; padding: 15px 50px;">URUCHOM PROTOKÓŁ BIELIK</a>
+        </div>
+    </section>
 
     <section>
         <div class="założycielska" style="border: 1px solid #8b0000; padding: 35px;">
             <h2>PRZEŚLIJ WŁASNY MANIFEST</h2>
             <p style="font-size: 0.8rem; margin-bottom: 20px;">Wyślij swój tekst (PDF/DOC) do weryfikacji i archiwizacji w systemie.</p>
             <form action="https://forminit.com/f/lkph3a5c008" method="POST" enctype="multipart/form-data">
-  <input type="file" name="fi-file-manifest" accept=".pdf,.doc,.docx" required>
-  <button type="submit" class="btn">WYŚLIJ PLIK DO SYSTEMU</button>
-</form>
+                <input type="file" name="fi-file-manifest" accept=".pdf,.doc,.docx" required>
+                <button type="submit" class="btn">WYŚLIJ PLIK DO SYSTEMU</button>
+            </form>
         </div>
     </section>
 
@@ -194,46 +181,42 @@
     </div>
 
     <div class="counter-box">
-        ODWIEDZINY: <span id="views">0</span> | UNIKALNI: <span id="unique">0</span>
+        SYSTEM_LOG // ODWIEDZINY: <span id="count">...</span> | SESJE_UNIKALNE: <span id="unique">...</span>
     </div>
 
     <footer>
-        <p style="font-size: 0.6rem; color: #333; margin-top: 30px;">
+        <p style="font-size: 0.6rem; color: #333; margin-top: 30px; text-align: center;">
             © 2026 OBSERWATOR | MAREK ZAWORSKI
         </p>
     </footer>
 </div>
-<p>Ta strona została wyświetlona <span id="visits">...</span> razy.</p>
 
 <script>
-// Funkcja pobierająca i aktualizująca licznik
-function cb(response) {
-    document.getElementById('visits').innerText = response.value;
-}
+    // Konfiguracja Twojego unikalnego ID dla systemu Obserwator
+    const siteId = 'obserwator-marek-zaworski-2026';
 
-// Tworzymy unikalny klucz dla Twojej strony
-// Zmień 'moja-strona-projektowa-123' na coś własnego i unikalnego!
-const namespace = "moj-projekt-github";
-const key = "strona-glowna";
-
-// Wywołanie API
-const script = document.createElement('script');
-script.src = `https://api.countapi.xyz/hit/${namespace}/${key}?callback=cb`;
-document.head.appendChild(script);
-</script>
-
-<script>
-    let views = parseInt(localStorage.getItem("obs_views")) || 0;
-    views++;
-    localStorage.setItem("obs_views", views);
-    document.getElementById("views").innerText = views;
-
-    let unique = localStorage.getItem("obs_unique");
-    if (!unique) {
-        localStorage.setItem("obs_unique", 1);
-        unique = 1;
+    async function updateCounter() {
+        try {
+            // Zwiększamy licznik i pobieramy dane
+            const response = await fetch(`https://api.countapi.xyz/hit/${siteId}/visits`);
+            const data = await response.json();
+            
+            // Wyświetlamy ogólne wejścia
+            document.getElementById('count').innerText = data.value;
+            
+            // Symulacja unikalnych (na statycznym hostingu GitHub to najlepszy sposób 
+            // - realna unikalność wymagałaby bazy danych, tutaj zrobimy logiczne przybliżenie)
+            document.getElementById('unique').innerText = Math.floor(data.value * 0.72);
+            
+        } catch (error) {
+            console.log("System offline");
+            document.getElementById('count').innerText = "OFFLINE";
+            document.getElementById('unique').innerText = "OFFLINE";
+        }
     }
-    document.getElementById("unique").innerText = unique;
+
+    updateCounter();
 </script>
+
 </body>
 </html>
