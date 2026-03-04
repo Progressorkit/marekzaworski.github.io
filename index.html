@@ -69,22 +69,25 @@
             line-height: 1.8;
         }
 
-        /* STYLIZACJA LICZNIKA */
+        /* STYLIZACJA LICZNIKA SYSTEMOWEGO */
         .counter-box {
             margin-top: 50px;
+            padding: 20px;
             text-align: center;
-            filter: grayscale(1) invert(1) brightness(0.7); /* Dopasowanie koloru obrazka do klimatu strony */
-            opacity: 0.6;
-            transition: 0.3s;
+            border-top: 1px solid #111;
         }
-        .counter-box:hover { opacity: 1; }
         .counter-label {
             display: block;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: #444;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
             text-transform: uppercase;
+        }
+        .counter-box img {
+            filter: invert(1) hue-rotate(180deg) brightness(0.6) contrast(1.2);
+            opacity: 0.8;
+            height: 25px; /* Stała wysokość dla estetyki */
         }
 
         .pobierz-przycisk {
@@ -185,8 +188,8 @@
     </div>
 
     <div class="counter-box">
-        <span class="counter-label">Logowania do systemu:</span>
-        <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0005&nbdigits=6&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0" />
+        <span class="counter-label">STATUS_LOG // WEJŚCIA_DO_SYSTEMU:</span>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0007&nbdigits=7&type=page&initCount=13405" title="System Counter" Alt="web counter" border="0" />
     </div>
 
     <footer>
