@@ -69,17 +69,23 @@
             line-height: 1.8;
         }
 
+        /* STYLIZACJA LICZNIKA */
         .counter-box {
             margin-top: 50px;
+            text-align: center;
+            filter: grayscale(1) invert(1) brightness(0.7); /* Dopasowanie koloru obrazka do klimatu strony */
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+        .counter-box:hover { opacity: 1; }
+        .counter-label {
+            display: block;
             font-size: 0.65rem;
             color: #444;
-            text-align: center;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
             text-transform: uppercase;
-            border-top: 1px solid #111;
-            padding-top: 20px;
         }
-        .counter-box span { color: #8b0000; font-weight: bold; }
 
         .pobierz-przycisk {
             display: block;
@@ -176,12 +182,11 @@
     <div class="legal-box">
         <strong>NOTA O ODPOWIEDZIALNOŚCI:</strong><br>
         Właściciel serwisu nie ponosi odpowiedzialności za treści, opinie oraz materiały zamieszczane przez inne podmioty lub użytkowników w ramach nadsyłanych manifestów. 
-        Wszelkie przejawy naruszenia praw autorskich (w tym plagiaty) zgłaszane przez osoby trzecie będą rozpatrywane niezwłocznie po otrzymaniu formalnego zgłoszenia, 
-        jednak pełną odpowiedzialność prawną za ich treść i oryginalność ponosi podmiot przesyłający materiał.
     </div>
 
     <div class="counter-box">
-        SYSTEM_LOG // ODWIEDZINY: <span id="count">...</span> | SESJE_UNIKALNE: <span id="unique">...</span>
+        <span class="counter-label">Logowania do systemu:</span>
+        <img src="https://hitwebcounter.com/counter/counter.php?page=9452026&style=0005&nbdigits=6&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0" />
     </div>
 
     <footer>
@@ -190,33 +195,5 @@
         </p>
     </footer>
 </div>
-
-<script>
-    // Konfiguracja Twojego unikalnego ID dla systemu Obserwator
-    const siteId = 'obserwator-marek-zaworski-2026';
-
-    async function updateCounter() {
-        try {
-            // Zwiększamy licznik i pobieramy dane
-            const response = await fetch(`https://api.countapi.xyz/hit/${siteId}/visits`);
-            const data = await response.json();
-            
-            // Wyświetlamy ogólne wejścia
-            document.getElementById('count').innerText = data.value;
-            
-            // Symulacja unikalnych (na statycznym hostingu GitHub to najlepszy sposób 
-            // - realna unikalność wymagałaby bazy danych, tutaj zrobimy logiczne przybliżenie)
-            document.getElementById('unique').innerText = Math.floor(data.value * 0.72);
-            
-        } catch (error) {
-            console.log("System offline");
-            document.getElementById('count').innerText = "OFFLINE";
-            document.getElementById('unique').innerText = "OFFLINE";
-        }
-    }
-
-    updateCounter();
-</script>
-
 </body>
 </html>
