@@ -203,6 +203,24 @@
         </p>
     </footer>
 </div>
+<p>Ta strona została wyświetlona <span id="visits">...</span> razy.</p>
+
+<script>
+// Funkcja pobierająca i aktualizująca licznik
+function cb(response) {
+    document.getElementById('visits').innerText = response.value;
+}
+
+// Tworzymy unikalny klucz dla Twojej strony
+// Zmień 'moja-strona-projektowa-123' na coś własnego i unikalnego!
+const namespace = "moj-projekt-github";
+const key = "strona-glowna";
+
+// Wywołanie API
+const script = document.createElement('script');
+script.src = `https://api.countapi.xyz/hit/${namespace}/${key}?callback=cb`;
+document.head.appendChild(script);
+</script>
 
 <script>
     let views = parseInt(localStorage.getItem("obs_views")) || 0;
