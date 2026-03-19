@@ -33,7 +33,7 @@
         #pdf-section {
             margin-top: 30px;
             opacity: 0;
-            transition: opacity 2s ease-in; /* Płynne pojawianie się */
+            transition: opacity 2s ease-in;
             text-align: center;
         }
 
@@ -58,30 +58,35 @@
     </div>
 
     <div id="pdf-section">
-    <p style="font-size: 0.7rem; color: #8b0000; margin-bottom: 15px;">WYKRYTO STRUMIEŃ DANYCH: RAPORT_LOG.HTML</p>
-    <a href="raport.html" class="btn-pdf">OTWÓRZ DOKUMENTACJĘ</a>
-</div>
+        <p style="font-size: 0.7rem; color: #8b0000; margin-bottom: 15px;">WYKRYTO STRUMIEŃ DANYCH: RAPORT_LOG.HTML</p>
+        <a href="raport.html" class="btn-pdf">OTWÓRZ DOKUMENTACJĘ</a>
+    </div>
 
     <a href="index.html" class="back-link">POWRÓT DO PANELU GŁÓWNEGO</a>
 
     <script>
-        const text = "AUTORYZACJA POMYŚLNA...\nŁADOWANIE MODUŁU BIELIK...\nPROSZĘ CZEKAĆ...\n\nDANE ZOSTAŁY ODBLOKOWANE.";
-        let i = 0;
-        const speed = 60;
+        const hasAccess = localStorage.getItem('bielikAccessGranted');
 
-        function typeWriter() {
-            if (i < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, speed);
-            } else {
-                // Gdy pisanie się skończy:
-                document.getElementById("cursor").style.display = "none"; // Usuń kursor
-                document.getElementById("pdf-section").style.opacity = "1"; // Pokaż przycisk
+        if (hasAccess !== 'true') {
+            window.location.href = 'index.html';
+        } else {
+            const text = "AUTORYZACJA POMYŚLNA...\nŁADOWANIE MODUŁU BIELIK...\nPROSZĘ CZEKAĆ...\n\nDANE ZOSTAŁY ODBLOKOWANE.";
+            let i = 0;
+            const speed = 60;
+
+            function typeWriter() {
+                if (i < text.length) {
+                    document.getElementById("typewriter").innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    document.getElementById("cursor").style.display = "none";
+                    document.getElementById("pdf-section").style.opacity = "1";
+                }
             }
-        }
 
-        window.onload = typeWriter;
+            window.onload = typeWriter;
+        }
     </script>
 
 </body>
